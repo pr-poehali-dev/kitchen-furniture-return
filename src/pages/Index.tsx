@@ -66,6 +66,14 @@ const Index = () => {
 
   const team = [
     {
+      image: "https://cdn.poehali.dev/files/9e9d1333-0fbd-4fde-901e-3d6d390e5274.jpg",
+      name: "Слепынин Артем Владимирович",
+      position: "Управляющий партнер",
+      experience: "18 лет опыта",
+      cases: "300+ выигранных дел",
+      description: "Основатель юридической практики. Специализируется на сложных потребительских спорах."
+    },
+    {
       image: "https://cdn.poehali.dev/projects/7469fbf9-0eb6-4bbf-b1b7-eb7bf359b354/files/061418b0-1f35-455f-b5c7-c2ce1573ae8f.jpg",
       name: "Алексей Петров",
       position: "Старший юрист",
@@ -252,7 +260,7 @@ const Index = () => {
               Опытные юристы, которые защитят ваши права
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {team.map((member, index) => (
               <Card 
                 key={index} 
