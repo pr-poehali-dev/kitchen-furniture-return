@@ -2,7 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import Icon from "@/components/ui/icon";
+import CompensationCalculator from "@/components/CompensationCalculator";
 import { useState } from "react";
 
 const Index = () => {
@@ -11,6 +13,7 @@ const Index = () => {
     phone: "",
     message: ""
   });
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -118,7 +121,12 @@ const Index = () => {
                 <Icon name="MessageCircle" size={20} className="mr-2" />
                 Бесплатная консультация
               </Button>
-              <Button size="lg" variant="outline" className="text-lg font-semibold bg-white/10 hover:bg-white/20 border-white text-white">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-lg font-semibold bg-white/10 hover:bg-white/20 border-white text-white"
+                onClick={() => setIsCalculatorOpen(true)}
+              >
                 <Icon name="Calculator" size={20} className="mr-2" />
                 Рассчитать компенсацию
               </Button>
@@ -357,6 +365,12 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      <Dialog open={isCalculatorOpen} onOpenChange={setIsCalculatorOpen}>
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto p-0">
+          <CompensationCalculator onClose={() => setIsCalculatorOpen(false)} />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
