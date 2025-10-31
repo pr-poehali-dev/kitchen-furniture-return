@@ -64,6 +64,33 @@ const Index = () => {
     }
   ];
 
+  const team = [
+    {
+      image: "https://cdn.poehali.dev/projects/7469fbf9-0eb6-4bbf-b1b7-eb7bf359b354/files/061418b0-1f35-455f-b5c7-c2ce1573ae8f.jpg",
+      name: "Алексей Петров",
+      position: "Старший юрист",
+      experience: "15 лет опыта",
+      cases: "200+ выигранных дел",
+      description: "Специализируется на защите прав потребителей. Кандидат юридических наук."
+    },
+    {
+      image: "https://cdn.poehali.dev/projects/7469fbf9-0eb6-4bbf-b1b7-eb7bf359b354/files/50d28b20-e8ee-4199-b8b9-e4322fb438b6.jpg",
+      name: "Мария Соколова",
+      position: "Ведущий юрист",
+      experience: "12 лет опыта",
+      cases: "150+ выигранных дел",
+      description: "Эксперт по судебным спорам с производителями мебели и техники."
+    },
+    {
+      image: "https://cdn.poehali.dev/projects/7469fbf9-0eb6-4bbf-b1b7-eb7bf359b354/files/b37bb59f-cea3-49ff-8f38-4cf27b10f2ca.jpg",
+      name: "Дмитрий Иванов",
+      position: "Юрист-эксперт",
+      experience: "10 лет опыта",
+      cases: "120+ выигранных дел",
+      description: "Специалист по досудебному урегулированию и составлению претензий."
+    }
+  ];
+
   const testimonials = [
     {
       name: "Мария Петрова",
@@ -209,6 +236,49 @@ const Index = () => {
                   <div className="flex items-center gap-2 text-secondary font-semibold">
                     <Icon name="Clock" size={18} />
                     {caseItem.result}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="team" className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">Наша команда</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Опытные юристы, которые защитят ваши права
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {team.map((member, index) => (
+              <Card 
+                key={index} 
+                className="hover:shadow-xl transition-all duration-300 overflow-hidden animate-scale-in group"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="relative h-80 overflow-hidden">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="font-heading text-2xl">{member.name}</CardTitle>
+                  <CardDescription className="text-primary font-semibold text-base">{member.position}</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <p className="text-muted-foreground">{member.description}</p>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Icon name="Award" size={18} className="text-secondary" />
+                    <span className="font-semibold">{member.experience}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Icon name="BriefcaseBusiness" size={18} className="text-secondary" />
+                    <span className="font-semibold">{member.cases}</span>
                   </div>
                 </CardContent>
               </Card>
